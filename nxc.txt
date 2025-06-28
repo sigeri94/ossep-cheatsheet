@@ -1,6 +1,7 @@
-nxc smb 10.0.0.0/24 --generate-hosts-file
 nxc smb 10.0.0.0/24 --generate-hosts-file hosts
 nxc smb 10.0.0.0/24 --generate-krb5-file krb5.conf
+nxc smb 192.168.56.11 --users-export user_11.txt
+
 
 nxc smb ip -u server$ -p server -k --generate-tgt ticket
 
