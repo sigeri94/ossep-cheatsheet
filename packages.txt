@@ -1,0 +1,9 @@
+sudo apt install bloodhound bloodhound.py seclists -y
+
+sudo apt install pipx git
+pipx ensurepath
+pipx install git+https://github.com/Pennyw0rth/NetExec
+
+python3 -m pipx install impacket
+
+pip install bloodyAD
