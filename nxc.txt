@@ -2,6 +2,8 @@ nxc smb 10.0.0.0/24 --generate-hosts-file
 nxc smb 10.0.0.0/24 --generate-hosts-file hosts
 nxc smb 10.0.0.0/24 --generate-krb5-file krb5.conf
 
+nxc smb ip -u server$ -p server -k --generate-tgt ticket
+
 nxc smb hosts.txt -u guest -p '' --shares
 nxc smb 10.0.0.4 -u guest -p '' -M spider_plus
 cat /tmp/nxc_hosted/nxc_spider_plus/10.0.0.4.json
