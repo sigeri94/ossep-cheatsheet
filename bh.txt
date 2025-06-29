@@ -1,3 +1,31 @@
 bloodhound-python -u john -p 'VerySafePassword!' -d tryhackme.loc -c all -dc dc.tryhackme.loc  -ns 10.200.150.10 --zip
 bloodhound-python -u 'd.baker' --hashes 'aad3b435b51404eeaad3b435b51404ee:18b5fb0d99e7a475316213c15b6f22ce' -d scepter.htb -ns 10.129.10.255 --auth-method ntlm -c All --zip --disable-autogc
 
+#----- bloodhound-python --zip -c All -d north.sevenkingdoms.local -u brandon.stark -p iseedeadpeople -dc winterfell.north.sevenkingdoms.local -ns 192.168.56.11
+INFO: Found AD domain: north.sevenkingdoms.local
+WARNING: Could not find a global catalog server, assuming the primary DC has this role
+If this gives errors, either specify a hostname with -gc or disable gc resolution with --disable-autogc
+INFO: Getting TGT for user
+INFO: Connecting to LDAP server: winterfell.north.sevenkingdoms.local
+INFO: Kerberos auth to LDAP failed, trying NTLM
+INFO: Found 1 domains
+INFO: Found 2 domains in the forest
+INFO: Found 2 computers
+INFO: Connecting to LDAP server: winterfell.north.sevenkingdoms.local
+INFO: Kerberos auth to LDAP failed, trying NTLM
+INFO: Connecting to GC LDAP server: winterfell.north.sevenkingdoms.local
+INFO: Kerberos auth to LDAP failed, trying NTLM
+INFO: Found 17 users
+INFO: Found 51 groups
+INFO: Found 3 gpos
+INFO: Found 1 ous
+INFO: Found 19 containers
+INFO: Found 1 trusts
+INFO: Starting computer enumeration with 10 workers
+INFO: Querying computer: castelblack.north.sevenkingdoms.local
+INFO: Querying computer: winterfell.north.sevenkingdoms.local
+WARNING: Failed to get service ticket for winterfell.north.sevenkingdoms.local, falling back to NTLM auth
+CRITICAL: CCache file is not found. Skipping...
+WARNING: DCE/RPC connection failed: [Errno Connection error (winterfell.north.sevenkingdoms.local:88)] [Errno -2] Name or service not known
+INFO: Done in 00M 03S
+INFO: Compressing output into 20250628220148_bloodhound.zip
