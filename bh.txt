@@ -1,5 +1,11 @@
-bloodhound-python -u john -p 'VerySafePassword!' -d tryhackme.loc -c all -dc dc.tryhackme.loc  -ns 10.200.150.10 --zip
-bloodhound-python -u 'd.baker' --hashes 'aad3b435b51404eeaad3b435b51404ee:18b5fb0d99e7a475316213c15b6f22ce' -d scepter.htb -ns 10.129.10.255 --auth-method ntlm -c All --zip --disable-autogc
+#bloody-python need DNS 
+dig @172.16.10.100 _ldap._tcp.dc._msdcs.gotham.local SRV
+ssh -D 1080 -L 53:172.16.10.100:53 user@jump-host
+nameserver 127.0.0.1
+---
+DNS Server 172.16.10.100 tidak reachable dari Kali Linux, bahkan melalui proxy.
+Proxychains tidak berfungsi untuk DNS request (UDP port 53).
+BloodHound-python tidak tahu pakai proxychains untuk resolve DNS – karena Python sendiri menggunakan resolver internal (dnspython) yang langsung query DNS server (bypass SOCKS proxy).
 
 #----- bloodhound-python --zip -c All -d north.sevenkingdoms.local -u brandon.stark -p iseedeadpeople -dc winterfell.north.sevenkingdoms.local -ns 192.168.56.11
 INFO: Found AD domain: north.sevenkingdoms.local
@@ -29,3 +35,32 @@ CRITICAL: CCache file is not found. Skipping...
 WARNING: DCE/RPC connection failed: [Errno Connection error (winterfell.north.sevenkingdoms.local:88)] [Errno -2] Name or service not known
 INFO: Done in 00M 03S
 INFO: Compressing output into 20250628220148_bloodhound.zip
+
+#----- bloodhound-python -u alfred -p 'P@ssw0rd' -d gotham.local -dc dc09.gotham.local -ns 192.168.88.142 -c All --zip
+[proxychains] config file found: /etc/proxychains4.conf
+[proxychains] preloading /usr/lib/x86_64-linux-gnu/libproxychains.so.4
+[proxychains] DLL init: proxychains-ng 4.17
+INFO: BloodHound.py for BloodHound LEGACY (BloodHound 4.2 and 4.3)
+INFO: Found AD domain: gotham.local
+INFO: Getting TGT for user
+INFO: Connecting to LDAP server: dc09.gotham.local
+INFO: Found 1 domains
+INFO: Found 1 domains in the forest
+INFO: Found 5 computers
+INFO: Connecting to LDAP server: dc09.gotham.local
+INFO: Found 15 users
+INFO: Found 56 groups
+INFO: Found 2 gpos
+INFO: Found 2 ous
+INFO: Found 19 containers
+INFO: Found 0 trusts
+INFO: Starting computer enumeration with 10 workers
+INFO: Querying computer:
+INFO: Querying computer: file05.gotham.local
+INFO: Querying computer: starlabs.gotham.local
+INFO: Querying computer: arkham.gotham.local
+INFO: Querying computer: dc09.gotham.local
+INFO: Skipping enumeration for starlabs.gotham.local since it could not be resolved.
+INFO: Connecting to GC LDAP server: dc09.gotham.local
+INFO: Done in 00M 23S
+INFO: Compressing output into 20250628222343_bloodhound.zip
